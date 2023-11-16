@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <title>Color Flipper | Simple Color</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-toggle">
+                <a href="index.html"><h2>Color Flipper</h2></a>
+            </div>
+            <ul>
+                <button class="cancel"><i class='bx bx bx-x'></i></button>
+                <li><a href="index.html">Simple</a></li>
+                <li><a href="hex.html">Hex</a></li>
+            </ul>
+            <button class="bars"><i class="bx bx-menu-alt-right"></i></button>
+        </nav>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <div id="back-container">
+                <h2> Background Color: <span class="color"></span></h2>
+            </div>
+            <button id="btn">Click Me</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+       
+        const simple = ['Aqua','Black','Blue','Fuchsia', 'Gray', 'Green','Lime','Maroon','Navy','Olive','Orange','Purple','Red','Silver', 'Teal', 'Yellow','DarkBlue', 'DarkCyan','DarkGray', 'DarkGreen','DarkKhaki', 'DarkMagenta', 'DarkOliveGreen','DarkOrange','DarkOrchid', 'DarkRed','DarkSalmon','DarkViolet','DarkSlateBlue', 'PaleTurquoise', 'MediumSpringGreen', 'SlateGray', 'LightSeaGreen', 'MediumOrchid', 'Coral', 'DodgerBlue', 'MediumPurple', 'SeaGreen','Tomato'];
+
+
+        const btn = document.getElementById('btn');
+        const color = document.querySelector('.color');
+        const main = document.getElementById('main');
+
+        btn.addEventListener('click', randomColor, false);
+
+        // create callback function 'randomColor'
+        function randomColor(){
+            colorName = simple[getRandomNumber()];
+            colorNameCase = colorName.toLocaleLowerCase()
+            console.log(colorName);
+
+            color.innerHTML = colorName;
+            main.style.backgroundColor = colorNameCase;
+
+        }
+
+        function getRandomNumber(){
+            return Math.floor(Math.random() * simple.length);
+        }
+    </script>
+</body>
+</html>

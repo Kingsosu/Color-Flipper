@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <title>Color Flipper | Hex Color</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-toggle">
+                <a href="index.html">Color Flipper</a>
+            </div>
+            <ul>
+                <button class="cancel"><i class='bx bx bx-x'></i></button>
+                <li><a href="index.html">Simple</a></li>
+                <li><a href="hex.html">Hex</a></li>
+            </ul>
+            <button class="bars"><i class="bx bx-menu-alt-right"></i></button>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <div class="container">
+            <div id="back-container">
+                <h2> Background Color: <span class="color"></span></h2>
+            </div>
+            <button id="btn">Click Me</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+        const btn = document.getElementById('btn');
+        const color = document.querySelector('.color');
+        const main = document.getElementById('main');
+
+        btn.addEventListener('click', randomColor, false);
+
+        // create callback function 'randomColor'
+        function randomColor(){
+            let hexColor = '#'
+            for(let i=0 ; i<6 ; i++){
+                //Add # and the 6 randomly generated number
+                hexColor += hex[getRandomNumber()];
+                console.log(hexColor);
+            }
+            color.innerHTML = hexColor;
+            main.style.backgroundColor =hexColor;
+
+        }
+
+        function getRandomNumber(){
+            return Math.floor(Math.random() * hex.length);
+        }
+    </script>
+</body>
+</html>
